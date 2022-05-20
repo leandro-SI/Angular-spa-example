@@ -1,8 +1,15 @@
-<p>extrato works!</p>
 
-<div *ngFor="let t of transferencias">
-  <p>Valor: {{ t.valor }}</p>
-  <p>Destino: {{ t.destino }}</p>
-  <hr>
-</div>
-
+<table class="tabela">
+  <thead class="tabela__cabecalho">
+    <th class="tabela_cabecalho_conteudo">Data</th>
+    <th class="tabela_cabecalho_conteudo">Valor</th>
+    <th class="tabela_cabecalho_conteudo">Destino</th>
+  </thead>
+  <tbody>
+    <tr class="tabela__linha" *ngFor="let t of transferencias">
+      <td class="tabela__conteudo">{{ t.data | date: "short" }}</td>
+      <td class="tabela__conteudo">{{ t.valor | currency }}</td>
+      <td class="tabela__conteudo">{{ t.destino }}</td>
+    </tr>
+  </tbody>
+</table>
