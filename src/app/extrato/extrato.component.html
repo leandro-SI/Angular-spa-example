@@ -5,11 +5,15 @@
     <th class="tabela_cabecalho_conteudo">Valor</th>
     <th class="tabela_cabecalho_conteudo">Destino</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transferencias.length > 0; else error">
     <tr class="tabela__linha" *ngFor="let t of transferencias">
       <td class="tabela__conteudo">{{ t.data | date: "short" }}</td>
       <td class="tabela__conteudo">{{ t.valor | currency }}</td>
       <td class="tabela__conteudo">{{ t.destino }}</td>
     </tr>
   </tbody>
+  <ng-template #error>
+    <p >Extrato de transferências vazio</p>
+  </ng-template>
+
 </table>
